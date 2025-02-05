@@ -1,5 +1,5 @@
 import express from 'express';
-import { tableRoutes } from './table.routes';
+import { tableRoutes } from './tables.routes';
 import { usersRoutes } from './users.routes';
 import { reservationRouters } from './reservations.routes';
 

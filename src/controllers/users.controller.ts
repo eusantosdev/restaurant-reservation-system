@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { Users } from '../models/users.models';
 
 const users = [
     {
@@ -29,10 +30,10 @@ export class UsersController {
     };
 
     static createUser (req: Request, res: Response) {
-        const { name, email, senha, role } = req.body;
+        const { nome, email, senha, role } = req.body as Users;
         const newUser = {
             id: users.length + 1,
-            name: name,
+            name: nome,
             email: email,
             senha: senha,
             role: role
