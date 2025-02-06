@@ -4,7 +4,7 @@ import { usersRoutes } from './users.routes';
 import { reservationRouters } from './reservations.routes';
 
 export const routes = (app: express.Express) => {
-    app.use(express.json());// Data format JSON
+    app.use(express.json());
     app.use(
         tableRoutes,
         usersRoutes,
