@@ -29,8 +29,8 @@ export class UsersController {
         res.send(userById);
     };
 
-    static createUser (req: Request, res: Response) {
-        const { nome, email, senha, role } = req.body as Users;
+    static registerUser (req: Request, res: Response) {
+        let { nome, email, senha, role } = req.body as Users;
         const newUser = {
             id: users.length + 1,
             name: nome,
@@ -41,6 +41,21 @@ export class UsersController {
         users.push(newUser);
         res.send({
             message: 'Usuário criado com sucesso!'
+        });
+    }
+
+    static loginUser (req: Request, res: Response) {
+        let { nome, email, senha } = req.body as Users; 
+        users.map(user => {
+            if (user.name === nome && user.email === email && user.senha === senha) {
+                res.send({ 
+                    message: 'Login realizado com sucesso!'
+                });
+            } else {
+                res.send({ 
+                    message: 'Email ou senha inválidos!',
+                });
+            }
         });
     }
 
